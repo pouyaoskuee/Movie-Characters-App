@@ -1,0 +1,89 @@
+
+/*App*/
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main{
+    width: 90%;
+display: flex;
+flex-direction: column;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/*header*/
+
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--color--secendery);
+    width: 90%;
+    height: 7rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 1rem;
+
+}
+
+.header ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header #search{
+    background-color: var(--color--third);
+    height: 4rem;
+    width: 30rem;
+    border-radius: 1rem;
+    color: var(--color--text);
+    padding: 1rem;
+}
+
+#search::placeholder{
+    color: var(--color--text);
+}
+
+.header .favorites{
+    display: flex;
+    position: relative;
+}
+
+.header .heart-icon{
+    width: 4rem;
+    height: 4rem;
+    color: darkred;
+
+}
+
+.header .favorites span{
+    position: absolute;
+    top: 0;
+    right: -1px;
+    color: var(--color--text);
+    background-color: darkred;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+}
+
+.charactersList{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+section{
+    border: 1px solid red;
+}
