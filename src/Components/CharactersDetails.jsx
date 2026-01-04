@@ -1,14 +1,15 @@
 import Episodes from "./Episodes.jsx";
+import {character} from "../../data/data.js";
 
 const CharactersDetails = () => {
     return (
         <section className="details-episodes">
             <div className="CharactersDetails">
-                <img src='/src/assets/3.jpeg' alt=""/>
+                <img src={character.image} alt={character.name}/>
                 <div className="details__description">
                     <div>
-                        <p>hellsjlfksljfo</p>
-                        <p>babslkflksjffskjlyyy</p>
+                        <div><span>{character.gender==='Male'?'👨 ':'👩 '}</span> <span>{character.name}</span></div>
+                        <div><span>{character.status==='Dead'?'🔴':'🟢'}</span> <span>{character.status}-{character.species}</span></div>
                     </div>
                     <div>
                         <p>yaljksmte</p>

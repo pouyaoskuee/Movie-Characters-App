@@ -81,7 +81,7 @@
 }
 
 
-/*charactersList*/
+/*charactersList------------------------------------*/
 
 .charactersList{
     display: flex;
@@ -121,7 +121,13 @@
     gap: 1rem;
 }
 
-/*CharacterDetails*/
+.card__icon{
+    width: 3rem;
+    height: 3rem;
+    color: darkred;
+}
+
+/*CharacterDetails------------------------------------*/
 
 .details-episodes{
     flex: 1;
@@ -134,7 +140,6 @@
     display: flex;
     background-color: var(--color--primary);
     border-radius: 1rem;
-    gap: 3rem;
 }
 
 .CharactersDetails img{
@@ -164,7 +169,7 @@
 }
 
 
-/*episodes*/
+/*episodes------------------------------------*/
 
 .episodes{
     background-color: var(--color--primary);

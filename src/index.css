@@ -39,7 +39,7 @@ button{
 
 }
 
-p{
+p,span{
     font-size: 1.6rem;
     color: var(--color--text);
 }

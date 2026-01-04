@@ -1,6 +1,4 @@
-import {TrashIcon} from '@heroicons/react/24/outline'
-import {HeartIcon} from '@heroicons/react/24/outline'
-import Episodes from './Episodes'
+import {EyeIcon} from '@heroicons/react/24/outline'
 
 
 
@@ -21,13 +19,13 @@ function CharacterItem({item}){
     return(
         <div className={'card'}>
             <div className="card__content">
-                <img src='/src/assets/1.jpeg' alt=""/>
+                <img src={item.image} alt={item.name}/>
                 <div className="card__description">
-                    <p>{item.name}</p>
-                    <p>dls;jlfdksa;l</p>
+                    <div><span>{item.gender==='Male'?'👨 ':'👩 '}</span> <span>{item.name}</span></div>
+                    <div><span>{item.status==='Dead'?'🔴':'🟢'}</span> <span>{item.status}-{item.species}</span></div>
                 </div>
             </div>
-            <div className="card__icon">❌</div>
+            <div className="card__icon"><EyeIcon/></div>
         </div>
 
 
