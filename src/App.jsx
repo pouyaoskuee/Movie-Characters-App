@@ -2,8 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import CharactersList from './components/CharactersList'
-import CharhactersDetails from './components/CharhactersDetails'
-// import Episodes from './components/Episodes'
+import CharactersDetails from './components/CharactersDetails'
 import {allCharacters} from '/data/data.js'
 
 
@@ -15,10 +14,8 @@ function App() {
 
               <section className="content">
                       <CharactersList allCharacters={allCharacters} />
-                      <CharhactersDetails/>
+                      <CharactersDetails   />
               </section>
-
-              {/*<Episodes/>*/}
           </main>
       </div>
   )

@@ -11,6 +11,7 @@ html{
 
 :root {
     --color--text: rgb(203 213 225);
+    --color--dark: rgb(16, 23, 34);
     --color--primary: rgb(30 41 59);
     --color--secendery: rgb(51 65 85);
     --color--third: rgb(100 116 139);
@@ -20,7 +21,7 @@ html{
 
 body{
     font-size: 1.6rem;
-    background-color: var(--color--primary);
+    background-color: var(--color--dark);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -36,6 +37,11 @@ button{
     outline: none;
     cursor: pointer;
 
+}
+
+p{
+    font-size: 1.6rem;
+    color: var(--color--text);
 }
 
 a{

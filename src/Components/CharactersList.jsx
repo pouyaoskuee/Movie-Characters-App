@@ -1,3 +1,8 @@
+import {TrashIcon} from '@heroicons/react/24/outline'
+import {HeartIcon} from '@heroicons/react/24/outline'
+import Episodes from './Episodes'
+
+
 
 export function CharactersList({allCharacters}) {
     return (
@@ -5,7 +10,6 @@ export function CharactersList({allCharacters}) {
             {allCharacters.map((item) => (
                 <CharacterItem item={item} key={item.id}  />
             ))}
-            <p>heloooo</p>
         </section>
     )
 }
@@ -13,15 +17,21 @@ export function CharactersList({allCharacters}) {
 export default CharactersList;
 
 
-function CharacterItem(item){
+function CharacterItem({item}){
     return(
         <div className={'card'}>
-            <p>{item.name}</p>
-            <img src="" alt=""/>
-            <div className="description"></div>
-            <div className="icon"></div>
+            <div className="card__content">
+                <img src='/src/assets/1.jpeg' alt=""/>
+                <div className="card__description">
+                    <p>{item.name}</p>
+                    <p>dls;jlfdksa;l</p>
+                </div>
+            </div>
+            <div className="card__icon">❌</div>
         </div>
 
 
     )
 }
+
+

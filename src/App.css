@@ -3,17 +3,20 @@
 .App {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 0 10rem;
+
 }
 .main{
-    width: 90%;
-display: flex;
-flex-direction: column;
+    /*width: 90%;*/
+    display: flex;
+    flex-direction: column;
 }
 
 .content{
     display: flex;
     justify-content: space-between;
+    margin-top: 5rem;
+    gap: 7rem;
 
 }
 
@@ -24,7 +27,7 @@ flex-direction: column;
     flex-direction: column;
     justify-content: center;
     background-color: var(--color--secendery);
-    width: 90%;
+    /*width: 90%;*/
     height: 7rem;
     border-radius: 1rem;
     padding: 1rem;
@@ -77,13 +80,107 @@ flex-direction: column;
     height: 2rem;
 }
 
+
+/*charactersList*/
+
 .charactersList{
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+}
+
+
+.card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 55rem;
+    height: 10rem;
+    background-color: var(--color--primary);
+    padding: 1rem;
+    border-radius: 1rem;
+    gap: 1rem;
+
+}
+
+.card__content{
+    display: flex;
+    gap: 1rem;
+}
+
+.card img{
+    width: 8rem;
+    height: 8rem;
+    border-radius: 1rem;
+}
+
+.card__description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/*CharacterDetails*/
+
+.details-episodes{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.CharactersDetails{
+    display: flex;
+    background-color: var(--color--primary);
+    border-radius: 1rem;
+    gap: 3rem;
+}
+
+.CharactersDetails img{
+    width: 22rem;
+    height: 21rem;
+    border-radius: 1rem;
+}
+
+.details__description{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.details__description p{
+    font-size: 1.7rem;
+}
+
+.details__description button{
+    background-color: var(--color--third);
+    color: var(--color--text);
+    width: 15rem;
+    height: 4rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+}
+
+
+/*episodes*/
+
+.episodes{
+    background-color: var(--color--primary);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 1rem;
 }
 
 
 
-section{
-    border: 1px solid red;
+.episodes__title{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
