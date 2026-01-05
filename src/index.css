@@ -8,9 +8,8 @@ html{
     font-size: 62.5%;
 
 }
-
 :root {
-    --color--text: rgb(203 213 225);
+    --color--text: #f1f5f9;
     --color--dark: rgb(16, 23, 34);
     --color--primary: rgb(30 41 59);
     --color--secendery: rgb(51 65 85);
@@ -18,6 +17,7 @@ html{
     --color--fours: rgb(148 163 184);
 
 }
+
 
 body{
     font-size: 1.6rem;

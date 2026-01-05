@@ -7,13 +7,14 @@ import {allCharacters} from '/data/data.js'
 
 
 function App() {
+    const [characters, setCharacters] = useState(allCharacters)
   return (
       <div className="App">
-              <Header/>
+              <Header results={characters.length} />
           <main className="main">
 
               <section className="content">
-                      <CharactersList allCharacters={allCharacters} />
+                      <CharactersList allCharacters={characters} />
                       <CharactersDetails   />
               </section>
           </main>

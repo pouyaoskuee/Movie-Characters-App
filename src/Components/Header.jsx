@@ -1,5 +1,5 @@
 import {HeartIcon} from '@heroicons/react/24/outline'
-function Header() {
+function Header({results}) {
     return (
         <header className="header">
             <nav>
@@ -11,7 +11,7 @@ function Header() {
                         <input type="search" name="" id="search" placeholder="Search" />
                     </li>
                     <li>
-                        <h1 className="title"> found X results</h1>
+                        <h2 className="title"> found {results} results</h2>
                     </li>
                     <li>
                         <div className="favorites"><HeartIcon className={'heart-icon'}/><span>3</span></div>
