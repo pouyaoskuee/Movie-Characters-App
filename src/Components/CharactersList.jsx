@@ -1,13 +1,22 @@
 import {EyeIcon} from '@heroicons/react/24/outline'
+import Loading from './Loading.jsx'
 
 
 
-export function CharactersList({allCharacters}) {
+export function CharactersList({allCharacters , isFetching}) {
+
+    if (isFetching) {
+        return (
+            <Loading />
+        )
+    }
+
     return (
         <section className="charactersList">
             {allCharacters.map((item) => (
-                <CharacterItem item={item} key={item.id}  />
-            ))}
+                    <CharacterItem item={item} key={item.id}  />
+                ))
+            }
         </section>
     )
 }
