@@ -12,6 +12,7 @@ const Episodes = ({Episodes}) => {
             <div className="episode__cards">
                 {episodes.map((item, index) => (<EpisodeCard index={index+1} item={item} key={item.id}/>))}
 
+
             </div>
         </div>
     );

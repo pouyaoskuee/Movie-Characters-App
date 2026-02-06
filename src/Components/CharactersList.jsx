@@ -15,6 +15,7 @@ export function CharactersList({allCharacters , isFetching , setCard }) {
     }
 
     return (
+
         <section className="charactersList">
             {allCharacters.map((item) => (
                     <CharacterItem setCard={setCard} item={item} key={item.id}  />

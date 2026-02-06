@@ -45,6 +45,7 @@ function App() {
     //
     // },[])
 
+
     useEffect(() => {
         async function fetchCharacters() {
             try {

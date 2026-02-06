@@ -28,3 +28,4 @@ const CharactersDetails = ({Detils}) => {
 };
 
 export default CharactersDetails;
+

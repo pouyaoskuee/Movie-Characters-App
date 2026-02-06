@@ -5,6 +5,7 @@ function Header({results , setName}) {
 
 
 
+
     return (
         <header className="header">
             <nav>
