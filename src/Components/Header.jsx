@@ -1,5 +1,10 @@
 import {HeartIcon} from '@heroicons/react/24/outline'
-function Header({results}) {
+function Header({results , setName}) {
+
+
+
+
+
     return (
         <header className="header">
             <nav>
@@ -8,7 +13,7 @@ function Header({results}) {
                         <h1 className="logo">logo 😍</h1>
                     </li>
                     <li>
-                        <input type="search" name="" id="search" placeholder="Search" />
+                        <input onChange={(e)=>{ setName(e.target.value)}} type="search" name="" id="search" placeholder="Search" />
                     </li>
                     <li>
                         <h2 className="title"> found {results} results</h2>

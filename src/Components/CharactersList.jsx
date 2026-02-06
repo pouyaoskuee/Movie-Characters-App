@@ -1,9 +1,12 @@
 import {EyeIcon} from '@heroicons/react/24/outline'
 import Loading from './Loading.jsx'
+import {useState} from "react";
 
 
 
-export function CharactersList({allCharacters , isFetching}) {
+export function CharactersList({allCharacters , isFetching , setCard }) {
+
+
 
     if (isFetching) {
         return (
@@ -14,7 +17,7 @@ export function CharactersList({allCharacters , isFetching}) {
     return (
         <section className="charactersList">
             {allCharacters.map((item) => (
-                    <CharacterItem item={item} key={item.id}  />
+                    <CharacterItem setCard={setCard} item={item} key={item.id}  />
                 ))
             }
         </section>
@@ -24,9 +27,9 @@ export function CharactersList({allCharacters , isFetching}) {
 export default CharactersList;
 
 
-function CharacterItem({item}){
+function CharacterItem({item , setCard}){
     return(
-        <div className={'card'}>
+        <div className={'card'} onClick={()=>setCard(item.id)}>
             <div className="card__content">
                 <img src={item.image} alt={item.name}/>
                 <div className="card__description">
