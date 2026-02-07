@@ -1,8 +1,8 @@
 import {ArrowUpCircleIcon} from '@heroicons/react/24/outline'
-import {episodes} from '/data/data.js'
+// import {episodes} from '/data/data.js'
 
-const Episodes = ({Episodes}) => {
-    console.log(Episodes)
+const Episodes = ({episodes}) => {
+    console.log(episodes)
     return (
         <div className="episodes">
             <div className="episodes__title">

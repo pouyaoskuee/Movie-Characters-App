@@ -30,7 +30,7 @@ export default CharactersList;
 
 function CharacterItem({item , setCard}){
     return(
-        <div className={'card'} onClick={()=>setCard(item.id)}>
+        <div className={'card'} onClick={()=>setCard(prevId => prevId===item.id?null:item.id)}>
             <div className="card__content">
                 <img src={item.image} alt={item.name}/>
                 <div className="card__description">

@@ -5,6 +5,7 @@ import CharactersList from './components/CharactersList'
 import CharactersDetails from './components/CharactersDetails'
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios'
+// import {episodes} from "../data/data.js";
 // import {character} from "../data/data.js";
 // import {allCharacters} from '/data/data.js'
 
@@ -13,8 +14,9 @@ function App() {
     const [characters, setCharacters] = useState([])
     const [isFetching, setIsFetching] = useState(false)
     const [name, setName] = useState('')
-    const [Card , setCard] = useState('2')
+    const [Card , setCard] = useState('')
     const [Detils, setDetils] = useState([])
+    const [episodes, setEpisodes] = useState([])
 
     console.log(Card)
 
@@ -51,6 +53,7 @@ function App() {
             try {
                 console.log(Card)
                 console.log(name)
+
                 setIsFetching(true)
                 const fetch = await axios.get(`https://rickandmortyapi.com/api/character?name=${name}`)
                 const FetchDetils = await axios.get(`https://rickandmortyapi.com/api/character/${Card}`)
@@ -58,9 +61,40 @@ function App() {
                 setDetils(FetchDetils.data)
                 const characters = await fetch.data.results
                 setCharacters(characters)
+                console.log(FetchDetils.data.episode)
+                const episodes = FetchDetils.data.episode || [];
+                const arrayepisodes = episodes.map((episode) => {
+                    return Number(episode.split("/").at(-1))
+                })
+
+                console.log(arrayepisodes)
+
+                if (Card!=''){
+                    const episodesList = await axios.get(`https://rickandmortyapi.com/api/episode/${arrayepisodes}`)
+                    console.log(episodesList.data)
+                    if (Array.isArray(episodesList.data)) {
+                        setEpisodes(episodesList.data)
+                    }else {
+                        setEpisodes([])
+                    }
+
+                }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             }catch(err){
+                setDetils('')
                 console.log(err)
                 toast.error(err.response.data.error)
 
@@ -70,6 +104,7 @@ function App() {
 
 
         }
+
 
 
         fetchCharacters()
@@ -106,7 +141,8 @@ function App() {
               <section className="content">
                         <Toaster/>
                       <CharactersList setCard={setCard} allCharacters={characters} isFetching={isFetching} />
-                      <CharactersDetails Detils={Detils} Characters={characters} />
+
+                      <CharactersDetails Detils={Detils} Characters={characters} episodes={episodes} />
               </section>
           </main>
       </div>
