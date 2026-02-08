@@ -1,10 +1,7 @@
 import Episodes from "./Episodes.jsx";
 import {Fragment} from "react";
 
-const CharactersDetails = ({Detils , episodes}) => {
-    console.log(Detils);
-    console.log(episodes)
-
+const CharactersDetails = ({Detils , episodes , setFavorites, favorites}) => {
     if (Detils.id!=null) {
         return (
             <section className="details-episodes">
@@ -17,9 +14,9 @@ const CharactersDetails = ({Detils , episodes}) => {
                         </div>
                         <div className={'details__location'}>
                             <p>Last known location:</p>
-                            {/*<p>{Detils.location.name}</p>*/}
+                            <p>{(Detils.location).name}</p>
                         </div>
-                        <button> add to your favorite</button>
+                        <button onClick={()=> setFavorites(([...favorites , Detils.id]))}>{favorites.find((e)=> e===Detils.id)?'in your favorite':'add to your favorite'}</button>
                     </div>
                 </div>
                 <Episodes episodes={episodes} />

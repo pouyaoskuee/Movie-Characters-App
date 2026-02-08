@@ -17,8 +17,9 @@ function App() {
     const [Card , setCard] = useState('')
     const [Detils, setDetils] = useState([])
     const [episodes, setEpisodes] = useState([])
+    const [favorites, setFavorites] = useState([])
 
-    console.log(Card)
+    console.log(favorites)
 
 
 
@@ -51,25 +52,20 @@ function App() {
     useEffect(() => {
         async function fetchCharacters() {
             try {
-                console.log(Card)
-                console.log(name)
 
                 setIsFetching(true)
                 const fetch = await axios.get(`https://rickandmortyapi.com/api/character?name=${name}`)
                 const FetchDetils = await axios.get(`https://rickandmortyapi.com/api/character/${Card}`)
-                console.log(FetchDetils)
                 setDetils(FetchDetils.data)
                 const characters = await fetch.data.results
                 setCharacters(characters)
-                console.log(FetchDetils.data.episode)
                 const episodes = FetchDetils.data.episode || [];
                 const arrayepisodes = episodes.map((episode) => {
                     return Number(episode.split("/").at(-1))
                 })
 
-                console.log(arrayepisodes)
 
-                if (Card!=''){
+                if (Card!==''){
                     const episodesList = await axios.get(`https://rickandmortyapi.com/api/episode/${arrayepisodes}`)
                     console.log(episodesList.data)
                     if (Array.isArray(episodesList.data)) {
@@ -79,15 +75,6 @@ function App() {
                     }
 
                 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -135,14 +122,14 @@ function App() {
 
   return (
       <div className="App">
-          <Header results={characters.length} setName={setName} />
+          <Header results={characters.length} setName={setName} favorites={favorites} />
           <main className="main">
 
               <section className="content">
                         <Toaster/>
                       <CharactersList setCard={setCard} allCharacters={characters} isFetching={isFetching} />
 
-                      <CharactersDetails Detils={Detils} Characters={characters} episodes={episodes} />
+                      <CharactersDetails Detils={Detils} Characters={characters} episodes={episodes} setFavorites={setFavorites} favorites={favorites} />
               </section>
           </main>
       </div>
