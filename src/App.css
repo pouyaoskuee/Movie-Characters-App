@@ -207,6 +207,11 @@
     width: 4rem;
     height: 4rem;
     color: var(--color--text);
+    transition: all 1s ease;
+}
+
+.rotate{
+    rotate: 180deg;
 }
 
 .episode__card{
@@ -224,4 +229,59 @@
     background-color: var(--color--third);
     border-radius: 1rem;
 }
+
+
+/*Modal*/
+
+.modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10rem;
+}
+
+.backdrop{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 20, 73, 0.5);
+    backdrop-filter: blur(10px);
+
+}
+
+.modal__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color--primary);
+    width: 67rem;
+    height: 30rem;
+    border-radius: 1rem;
+    z-index: 2;
+    box-shadow: var(--color--primary) 0 0 30px  ;
+
+}
+
+.modal__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.modal__header button{
+    width: 5rem;
+    color: red;
+}
+
+.hidden{
+    display: none;
+}
+
+
 

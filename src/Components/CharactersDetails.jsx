@@ -1,6 +1,7 @@
 import Episodes from "./Episodes.jsx";
 import {Fragment} from "react";
 
+
 const CharactersDetails = ({Detils , episodes , setFavorites, favorites}) => {
     if (Detils.id!=null) {
         return (

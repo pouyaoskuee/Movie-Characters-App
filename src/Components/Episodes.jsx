@@ -1,12 +1,26 @@
 import {ArrowUpCircleIcon} from '@heroicons/react/24/outline'
+import {useEffect, useState} from "react";
 // import {episodes} from '/data/data.js'
 
+
+
+
+
 const Episodes = ({episodes}) => {
+
+    const [sortBy, setSortBy] = useState(true)
+
+    if (sortBy) {
+        episodes.sort((a, b) => new Date(a.created)-new Date(b.created))
+    }else {
+        episodes.sort((a, b) => new Date(b.created)-new Date(a.created))
+    }
+
     return (
         <div className="episodes">
             <div className="episodes__title">
                 <h3>List of Episode:</h3>
-                <div className="episode__icon"><ArrowUpCircleIcon/></div>
+                <button type={"button"} onClick={()=>setSortBy((is)=> !is) } className={`episode__icon ${sortBy?'':'rotate'}`}><ArrowUpCircleIcon/></button>
             </div>
             <div className="episode__cards">
                 {episodes.map((item, index) => (<EpisodeCard index={index+1} item={item} key={item.id}/>))}

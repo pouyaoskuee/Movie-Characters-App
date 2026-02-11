@@ -5,6 +5,7 @@ import CharactersList from './components/CharactersList'
 import CharactersDetails from './components/CharactersDetails'
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios'
+import Modal from "./Components/Modal.jsx";
 // import {episodes} from "../data/data.js";
 // import {character} from "../data/data.js";
 // import {allCharacters} from '/data/data.js'
@@ -18,8 +19,6 @@ function App() {
     const [Detils, setDetils] = useState([])
     const [episodes, setEpisodes] = useState([])
     const [favorites, setFavorites] = useState([])
-
-    console.log(favorites)
 
 
 
@@ -93,7 +92,6 @@ function App() {
         }
 
 
-
         fetchCharacters()
 
     },[name,Card])
@@ -118,10 +116,9 @@ function App() {
 
 
 
-
-
   return (
       <div className="App">
+          <Modal/>
           <Header results={characters.length} setName={setName} favorites={favorites} />
           <main className="main">
 
