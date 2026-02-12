@@ -21,4 +21,5 @@ function Modal({children, setIsClose , isClose}) {
     )
 }
 
+
 export default Modal;

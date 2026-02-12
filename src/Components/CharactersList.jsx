@@ -52,3 +52,4 @@ export function CharacterItem({item , setCard, isClose ,setFavorites , favorites
 }
 
 
+

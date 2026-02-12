@@ -29,4 +29,5 @@ function Header({results , setName , favorites , setIsClose}) {
     )
 }
 
+
 export default Header;
