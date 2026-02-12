@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react'
 import './App.css'
 import Header from './components/Header'
-import CharactersList from './components/CharactersList'
-import CharactersDetails from './components/CharactersDetails'
+import CharactersList, {CharacterItem} from './components/CharactersList'
+import CharactersDetails, {Messages} from './components/CharactersDetails'
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios'
 import Modal from "./Components/Modal.jsx";
@@ -18,7 +18,10 @@ function App() {
     const [Card , setCard] = useState('')
     const [Detils, setDetils] = useState([])
     const [episodes, setEpisodes] = useState([])
-    const [favorites, setFavorites] = useState([])
+    const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')))
+    const [isClose, setIsClose] = useState(true);
+    console.log(favorites)
+    console.log(isClose)
 
 
 
@@ -46,6 +49,20 @@ function App() {
     //     fetchCharacters()
     //
     // },[])
+
+    // useEffect(() => {
+    //
+    //     // setFilterCharacters(characters.find((character) => character.name === name))
+    //     // setCharacters('Rick')
+    //     // characters.map((character) => {
+    //     //     console.log(character)
+    //     // })
+    //
+    //
+    // },[ isFetching ,name])
+    //
+    //
+    // console.log(filterCharacters)
 
 
     useEffect(() => {
@@ -96,35 +113,27 @@ function App() {
 
     },[name,Card])
 
+    useEffect(() => {
 
-    // useEffect(() => {
-    //
-    //     // setFilterCharacters(characters.find((character) => character.name === name))
-    //     // setCharacters('Rick')
-    //     // characters.map((character) => {
-    //     //     console.log(character)
-    //     // })
-    //
-    //
-    // },[ isFetching ,name])
-    //
-    //
-    // console.log(filterCharacters)
+        localStorage.setItem('favorites', JSON.stringify(favorites))
 
-
-
-
+    },[favorites])
 
 
   return (
       <div className="App">
-          <Modal/>
-          <Header results={characters.length} setName={setName} favorites={favorites} />
+          <Modal isClose={isClose} setIsClose={setIsClose}>
+              {
+                  favorites.length?favorites.map((item) => (<CharacterItem item={item} setCard={()=>{}} key={item.id} setFavorites={setFavorites} favorites={favorites}  />)):<Messages />
+
+              }
+          </Modal>
+          <Header results={characters.length} setName={setName} favorites={favorites} setIsClose={setIsClose} />
           <main className="main">
 
               <section className="content">
                         <Toaster/>
-                      <CharactersList setCard={setCard} allCharacters={characters} isFetching={isFetching} />
+                      <CharactersList setCard={setCard} allCharacters={characters} isFetching={isFetching} isClose={isClose} favorites={favorites} setFavorites={setFavorites}/>
 
                       <CharactersDetails Detils={Detils} Characters={characters} episodes={episodes} setFavorites={setFavorites} favorites={favorites} />
               </section>

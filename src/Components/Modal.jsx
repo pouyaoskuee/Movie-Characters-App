@@ -1,7 +1,6 @@
 import {XCircleIcon} from "@heroicons/react/24/outline";
 import {useState} from "react";
-function Modal() {
-    const [isClose, setIsClose] = useState(false);
+function Modal({children, setIsClose , isClose}) {
     return (
         <div className={`modal ${isClose ? 'hidden' : ''}`}>
             <div className="backdrop" onClick={()=> setIsClose(true) }></div>
@@ -12,6 +11,10 @@ function Modal() {
                         <XCircleIcon/>
                     </button>
                 </div>
+                <div className="modal__cards">
+                    {children}
+                </div>
+
             </div>
         </div>
 

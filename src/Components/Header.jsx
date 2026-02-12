@@ -1,5 +1,5 @@
 import {HeartIcon} from '@heroicons/react/24/outline'
-function Header({results , setName , favorites}) {
+function Header({results , setName , favorites , setIsClose}) {
 
 
 
@@ -20,7 +20,7 @@ function Header({results , setName , favorites}) {
                         <h2 className="title"> found {results} results</h2>
                     </li>
                     <li>
-                        <div className="favorites"><HeartIcon className={'heart-icon'}/><span>{[...new Set(favorites)].length}</span></div>
+                        <div className="favorites" onClick={()=>setIsClose(false)}><HeartIcon className={'heart-icon'}/><span>{[...new Set(favorites)].length}</span></div>
                     </li>
                 </ul>
             </nav>

@@ -17,7 +17,7 @@ const CharactersDetails = ({Detils , episodes , setFavorites, favorites}) => {
                             <p>Last known location:</p>
                             <p>{(Detils.location).name}</p>
                         </div>
-                        <button onClick={()=> setFavorites(([...favorites , Detils.id]))}>{favorites.find((e)=> e===Detils.id)?'in your favorite':'add to your favorite'}</button>
+                        <button onClick={()=> setFavorites(([...favorites , Detils]))}>{favorites.find((e)=> e.id===Detils.id)?'in your favorite':'add to your favorite'}</button>
                     </div>
                 </div>
                 <Episodes episodes={episodes} />
@@ -36,11 +36,11 @@ const CharactersDetails = ({Detils , episodes , setFavorites, favorites}) => {
 export default CharactersDetails;
 
 
-const Messages = () => {
+export const Messages = () => {
     return (
-        <div style={{flexGrow: 1}}>
+        <div style={{flexGrow: 1, padding: '3rem'}}>
             <h3>
-                not select a character</h3>
+                not chose a character</h3>
         </div>
     )
 }
