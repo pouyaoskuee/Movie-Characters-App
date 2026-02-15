@@ -6,7 +6,6 @@ import {useState} from "react";
 
 
 export function CharactersList({allCharacters , isFetching , setCard , isClose,favorites , setFavorites}) {
-    console.log(isClose)
 
 
 
@@ -31,8 +30,6 @@ export default CharactersList;
 
 
 export function CharacterItem({item , setCard, isClose ,setFavorites , favorites}) {
-    console.log(isClose)
-    console.log(favorites)
     return(
         <div className={'card'} onClick={()=>setCard(prevId => prevId===item.id?null:item.id)}>
             <div className="card__content">

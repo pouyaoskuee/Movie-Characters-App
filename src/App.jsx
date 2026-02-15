@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useRef, useState , forwardRef} from 'react'
 import './App.css'
 import Header from './components/Header'
 import CharactersList, {CharacterItem} from './components/CharactersList'
@@ -6,22 +6,19 @@ import CharactersDetails, {Messages} from './components/CharactersDetails'
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios'
 import Modal from "./Components/Modal.jsx";
+import Input from "./Components/Input.jsx";
+import useCharacters from "./hooks/UseCharacters.js";
 // import {episodes} from "../data/data.js";
 // import {character} from "../data/data.js";
 // import {allCharacters} from '/data/data.js'
 
 
 function App() {
-    const [characters, setCharacters] = useState([])
-    const [isFetching, setIsFetching] = useState(false)
     const [name, setName] = useState('')
     const [Card , setCard] = useState('')
-    const [Detils, setDetils] = useState([])
-    const [episodes, setEpisodes] = useState([])
+    const {characters , isFetching , Detils , episodes } = useCharacters(name , Card)
     const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')))
     const [isClose, setIsClose] = useState(true);
-    console.log(favorites)
-    console.log(isClose)
 
 
 
@@ -66,59 +63,62 @@ function App() {
     // console.log(filterCharacters)
 
 
-    useEffect(() => {
-        async function fetchCharacters() {
-            try {
-
-                setIsFetching(true)
-                const fetch = await axios.get(`https://rickandmortyapi.com/api/character?name=${name}`)
-                const FetchDetils = await axios.get(`https://rickandmortyapi.com/api/character/${Card}`)
-                setDetils(FetchDetils.data)
-                const characters = await fetch.data.results
-                setCharacters(characters)
-                const episodes = FetchDetils.data.episode || [];
-                const arrayepisodes = episodes.map((episode) => {
-                    return Number(episode.split("/").at(-1))
-                })
-
-
-                if (Card!==''){
-                    const episodesList = await axios.get(`https://rickandmortyapi.com/api/episode/${arrayepisodes}`)
-                    console.log(episodesList.data)
-                    if (Array.isArray(episodesList.data)) {
-                        setEpisodes(episodesList.data)
-                    }else {
-                        setEpisodes([])
-                    }
-
-                }
-
-
-
-
-
-            }catch(err){
-                setDetils('')
-                console.log(err)
-                toast.error(err.response.data.error)
-
-            }finally {
-                setIsFetching(false)
-            }
-
-
-        }
-
-
-        fetchCharacters()
-
-    },[name,Card])
+    // useEffect(() => {
+    //     async function fetchCharacters() {
+    //         try {
+    //
+    //             setIsFetching(true)
+    //             const fetch = await axios.get(`https://rickandmortyapi.com/api/character?name=${name}`)
+    //             const FetchDetils = await axios.get(`https://rickandmortyapi.com/api/character/${Card}`)
+    //             setDetils(FetchDetils.data)
+    //             const characters = await fetch.data.results
+    //             setCharacters(characters)
+    //             const episodes = FetchDetils.data.episode || [];
+    //             const arrayepisodes = episodes.map((episode) => {
+    //                 return Number(episode.split("/").at(-1))
+    //             })
+    //
+    //
+    //             if (Card!==''){
+    //                 const episodesList = await axios.get(`https://rickandmortyapi.com/api/episode/${arrayepisodes}`)
+    //                 console.log(episodesList.data)
+    //                 if (Array.isArray(episodesList.data)) {
+    //                     setEpisodes(episodesList.data)
+    //                 }else {
+    //                     setEpisodes([])
+    //                 }
+    //
+    //             }
+    //
+    //
+    //
+    //
+    //
+    //         }catch(err){
+    //             setDetils('')
+    //             console.log(err)
+    //             toast.error(err.response.data.error)
+    //
+    //         }finally {
+    //             setIsFetching(false)
+    //         }
+    //
+    //
+    //     }
+    //
+    //
+    //     fetchCharacters()
+    //
+    // },[name,Card])
 
     useEffect(() => {
 
         localStorage.setItem('favorites', JSON.stringify(favorites))
 
     },[favorites])
+
+
+
 
 
   return (
@@ -139,9 +139,11 @@ function App() {
                       <CharactersDetails Detils={Detils} Characters={characters} episodes={episodes} setFavorites={setFavorites} favorites={favorites} />
               </section>
           </main>
+          <Input/>
       </div>
   )
 }
 
 export default App
+
 
