@@ -1,11 +1,8 @@
 import {HeartIcon} from '@heroicons/react/24/outline'
+
+
+
 function Header({results , setName , favorites , setIsClose}) {
-
-
-
-
-
-
     return (
         <header className="header">
             <nav>

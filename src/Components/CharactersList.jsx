@@ -1,7 +1,5 @@
 import {EyeIcon, XCircleIcon , TrashIcon} from '@heroicons/react/24/outline'
 import Loading from './Loading.jsx'
-import {useState} from "react";
-// import {allCharacters} from "../../data/data.js";
 
 
 

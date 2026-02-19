@@ -297,3 +297,15 @@
     padding: 1rem;
 }
 
+.counter{
+    background-color: #fff;
+    margin-top: 1rem;
+}
+
+.btns button{
+    border: solid 1px gray;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+

@@ -1,5 +1,4 @@
 import {XCircleIcon} from "@heroicons/react/24/outline";
-import {useState} from "react";
 function Modal({children, setIsClose , isClose}) {
     return (
         <div className={`modal ${isClose ? 'hidden' : ''}`}>

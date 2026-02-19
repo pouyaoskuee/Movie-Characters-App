@@ -1,6 +1,5 @@
 import {ArrowUpCircleIcon} from '@heroicons/react/24/outline'
-import {useEffect, useState} from "react";
-// import {episodes} from '/data/data.js'
+import {useState} from "react";
 
 
 
